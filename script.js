@@ -256,6 +256,7 @@ function renderList() {
         updateTabsUI();
       }
       renderList();
+      renderDropdownNotifications();
       renderContent(notif);
     };
 
@@ -297,6 +298,7 @@ function renderList() {
         archivedNotifications.unshift(notif);
       }
       renderList();
+      renderDropdownNotifications();
     };
     div.appendChild(btn);
 
@@ -327,15 +329,16 @@ function markAllAsRead() {
     newNotifications = [];
     selectedNotificationId = null;
     currentTab = "opened";
-    renderDropdownNotifications();
     updateTabsUI();
     renderList();
+    renderDropdownNotifications();
     renderContent({ title: "Select a notification", content: "" });
   }
 }
 
 function refreshNotifications() {
   renderList();
+  renderDropdownNotifications();
 }
 
 function switchTab(tab) {
@@ -343,6 +346,7 @@ function switchTab(tab) {
   selectedNotificationId = null;
   updateTabsUI();
   renderList();
+  renderDropdownNotifications();
   renderContent({ title: "Select a notification", content: "" });
 }
 
@@ -378,7 +382,7 @@ function addRandomNotification() {
     id: Date.now() + getRandomInt(1000),
     title: titleObj.title,
     content: `This is a notification about “${titleObj.title}.”`,
-    time: randomDateWithinLastDays(2),
+    time: randomDateWithinLastDays(7),
     tags, icon: titleObj.icon,
     checked: false,
     justAdded: true
@@ -432,9 +436,9 @@ function renderDropdownNotifications() {
   dropdownList.innerHTML = "";
 
   const latestNew = newNotifications
-    .slice() // shallow copy so we don't mutate original
+    .slice()
     .sort((a, b) => b.time - a.time)
-    .slice(0, 5); // max 5
+    .slice(0, 5);
 
   if (latestNew.length === 0) {
     const li = document.createElement("li");
@@ -446,11 +450,49 @@ function renderDropdownNotifications() {
 
   latestNew.forEach((notif) => {
     const li = document.createElement("li");
-    li.textContent = notif.title;
-    li.style.color = "#333"; // Ensure visibility
+    li.className = "dropdown-notif-item";
+
+    // Icon div
+    const iconDiv = document.createElement("div");
+    iconDiv.className = "notif-icon";
+    iconDiv.textContent = notif.icon;
+
+    // Main content div
+    const mainDiv = document.createElement("div");
+    mainDiv.className = "notif-main";
+
+    // Title
+    const titleDiv = document.createElement("div");
+    titleDiv.className = "notif-title";
+    titleDiv.textContent = notif.title;
+
+    // Tags container
+    const tagsDiv = document.createElement("div");
+    tagsDiv.className = "notif-tags";
+    notif.tags.forEach(tag => {
+      const span = document.createElement("span");
+      span.className = "notif-tag";
+      span.textContent = tag.toUpperCase();
+      span.style.backgroundColor = possibleTags[tag] || "#6b7280";
+      tagsDiv.appendChild(span);
+    });
+
+    mainDiv.appendChild(titleDiv);
+    mainDiv.appendChild(tagsDiv);
+
+    // Timestamp div
+    const timeDiv = document.createElement("div");
+    timeDiv.className = "notif-time";
+    timeDiv.textContent = timeAgo(notif.time);
+
+    li.appendChild(iconDiv);
+    li.appendChild(mainDiv);
+    li.appendChild(timeDiv);
+
     li.onclick = () => {
       window.location.href = "notifications.html";
     };
+
     dropdownList.appendChild(li);
   });
 }
