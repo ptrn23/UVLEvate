@@ -1,0 +1,358 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Roboto", sans-serif;
+}
+
+/* Header */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #7b1113;
+    color: white;
+    padding: 10px 20px;
+    position: relative;
+}
+
+.header-left,
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.header-logo {
+    font-weight: bold;
+}
+
+.header img.profile-pic {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+}
+
+.icon-placeholder {
+    width: 24px;
+    height: 24px;
+    background-color: #4b5563;
+    border-radius: 4px;
+}
+
+.date-display {
+    font-size: 0.9em;
+    color: #f3f4f6;
+}
+
+/* Main Container */
+.main-container {
+    display: flex;
+    height: calc(100vh - 60px);
+}
+
+.sidebar {
+    width: 30%;
+    background-color: #f3f4f6;
+    padding: 20px;
+    border-right: 1px solid #ccc;
+    overflow-y: scroll;
+}
+
+.content {
+    width: 70%;
+    padding: 30px;
+}
+
+/* Notification Items */
+.notification-item {
+    position: relative;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    background-color: white;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding-bottom: 30px;
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.notification-item.entering {
+  opacity: 0;
+  transform: translateY(-15px);
+}
+
+.notification-item.removing {
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+}
+
+.notification-item:hover {
+    background-color: #e5e7eb;
+}
+
+.notification-item.active {
+  background-color: #e0f2fe; /* light blue */
+  transition: background-color 0.4s ease;
+}
+
+.notification-title {
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.notification-subtitle {
+    font-size: 0.85em;
+    color: #6b7280;
+}
+
+.notification-tags {
+    font-size: 0.75em;
+    color: #374151;
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+
+.notification-tags span {
+    padding: 4px 6px;
+    border-radius: 16px;
+    font-size: smaller;
+    font-weight: bold;
+    color: white;
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
+}
+
+.tag-General {
+    background-color: #3b82f6;
+}
+
+.tag-Announcement {
+    background-color: #10b981;
+}
+
+.tag-Course-101 {
+    background-color: #f59e0b;
+}
+
+.tag-Deadline {
+    background-color: #ef4444;
+}
+
+.tag-Grades {
+    background-color: #8b5cf6;
+}
+
+.notification-icons {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.notification-icons .icon-placeholder {
+    width: 16px;
+    height: 16px;
+    background-color: #9ca3af;
+}
+
+.checkmark {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+/* Typography */
+h1 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.dropdown {
+    margin-bottom: 0;
+}
+
+select {
+    padding: 6px;
+    font-size: 0.9em;
+}
+
+/* Tabs */
+.tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.tab-content {
+  transition: opacity 0.4s ease;
+}
+
+.tab-content.hidden {
+  opacity: 0;
+  pointer-events: none;
+  height: 0;
+  overflow: hidden;
+}
+
+.tab-button {
+    padding: 6px 12px;
+    border: none;
+    background-color: #e5e7eb;
+    cursor: pointer;
+    border-radius: 6px;
+    color: #374151;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.tab-button.active {
+    background-color: #3b82f6;
+    color: white;
+}
+
+/* Tab Bar (Tabs + Actions) */
+.tab-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    background: #f3f4f6;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.tab-buttons,
+.tab-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+/* Action Buttons */
+.action-btn {
+    background-color: #e5e7eb;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #3b82f6;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.action-btn:hover {
+    background-color: #3b82f6;
+    color: white;
+}
+
+/* Archive Button */
+.archive-btn {
+    position: absolute;
+    bottom: 0.3rem;
+    right: 0.5rem;
+    background: #f3f4f6;
+    border: 1px solid #d1d5db;
+    padding: 2px 6px;
+    font-size: 12px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.archive-btn:hover {
+    background: #e5e7eb;
+}
+
+.notification-archive-btn {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    font-size: 0.75rem;
+    padding: 4px 8px;
+    background-color: #e5e7eb;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.notification-archive-btn:hover {
+  background-color: #d1d5db;
+  transform: scale(1.05);
+}
+
+.notification-archive-btn:active {
+  transform: scale(0.95);
+}
+
+/* Debug Button */
+#debug-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #f59e0b;
+    border: none;
+    color: white;
+    padding: 8px 14px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    z-index: 100;
+    transition: background-color 0.3s ease;
+}
+
+#debug-btn:hover {
+    background-color: #d97706;
+}
+
+/* Debug Info Box */
+#debug-info {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 12px 16px;
+    max-width: 300px;
+    font-size: 0.9em;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    color: #374151;
+    user-select: none;
+}
+
+#debug-info h3 {
+    margin-top: 0;
+    font-size: 1.1em;
+    margin-bottom: 8px;
+}
+
+#debug-info ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0 0 10px 0;
+}
+
+#debug-info ul li {
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#debug-info .color-box {
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+    display: inline-block;
+}
