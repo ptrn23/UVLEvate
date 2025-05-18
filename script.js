@@ -360,8 +360,23 @@ function updateTabsUI() {
 }
 
 function setCurrentDate() {
-  document.getElementById("current-date").textContent =
-    new Date().toLocaleDateString(undefined, { weekday: "short", month: "short", day: "numeric", year: "numeric" });
+  const now = new Date();
+
+  const datePart = now.toLocaleDateString(undefined, {
+    weekday: "short",
+    month: "short",
+    day: "numeric",
+    year: "numeric"
+  });
+
+  const timePart = now.toLocaleTimeString(undefined, {
+    hour: "numeric",
+    minute: "numeric",
+    second: "numeric",
+    hour12: true
+  });
+
+  document.getElementById("current-date").textContent = `${datePart}, ${timePart}`;
 }
 
 //–– Random Notification Generator ––//
@@ -391,36 +406,6 @@ function addRandomNotification() {
   newNotifications.unshift(newNotif);
   renderDropdownNotifications();
   if (currentTab === "new") renderList();
-}
-
-//–– Debug Info ––//
-
-function initDebugInfo() {
-  const tagsList = document.getElementById("tags-list");
-  const titlesList = document.getElementById("titles-list");
-  const timesList = document.getElementById("times-list");
-
-  // tags
-  for (const [tag, color] of Object.entries(possibleTags)) {
-    const li = document.createElement("li");
-    li.innerHTML = `<span class="color-box" style="background-color:${color}"></span>${tag}`;
-    tagsList.appendChild(li);
-  }
-  // titles
-  Object.values(notificationClasses).forEach(cls =>
-    cls.titles.forEach(t => {
-      const li = document.createElement("li");
-      li.textContent = `${t.icon} ${t.title}`;
-      titlesList.appendChild(li);
-    })
-  );
-  // times
-  [30, 5 * 60, 2 * 3600, 24 * 3600, 3 * 24 * 3600].forEach(sec => {
-    const li = document.createElement("li");
-    const date = new Date(Date.now() - sec * 1000);
-    li.textContent = timeAgo(date);
-    timesList.appendChild(li);
-  });
 }
 
 const bellIcon = document.querySelectorAll(".header-icon")[1]; // Assuming second icon is the bell
@@ -497,10 +482,125 @@ function renderDropdownNotifications() {
   });
 }
 
+const themePresets = {
+  maroon: {
+    header: "#800000",
+    button: "#a52a2a",
+    link: "#b22222"
+  },
+  forest: {
+    header: "#228B22",
+    button: "#2e8b57",
+    link: "#006400"
+  },
+  orange: {
+    header: "#ff8c00",
+    button: "#ff4500",
+    link: "#ff6347"
+  },
+  pink: {
+    header: "#ff69b4",
+    button: "#ff1493",
+    link: "#db7093"
+  },
+  mono: {
+    header: "#333333",
+    button: "#555555",
+    link: "#888888"
+  },
+
+  royalBlue: {
+    header: "#4169E1",
+    button: "#27408B",
+    link: "#1E90FF"
+  },
+  gold: {
+    header: "#FFD700",
+    button: "#FFC300",
+    link: "#FFB800"
+  },
+  violet: {
+    header: "#8A2BE2",
+    button: "#7B1FA2",
+    link: "#9400D3"
+  },
+  teal: {
+    header: "#008080",
+    button: "#006666",
+    link: "#009999"
+  },
+  purpleOrange: {
+    header: "#8A2BE2",  // purple
+    button: "#FF8C00",  // dark orange
+    link: "#A0522D"     // sienna (warm accent)
+  },
+  redBlue: {
+    header: "#DC143C",  // crimson red
+    button: "#4169E1",  // royal blue
+    link: "#00008B"     // dark blue
+  },
+  tealCoral: {
+    header: "#008080",  // teal
+    button: "#FF6F61",  // coral
+    link: "#CD5C5C"     // indian red
+  },
+  yellowPurple: {
+    header: "#FFD700",  // gold
+    button: "#6A0DAD",  // dark purple
+    link: "#9400D3"     // dark violet
+  }
+};
+
+document.querySelectorAll(".color-swatch").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const theme = btn.getAttribute("data-theme");
+    const colors = themePresets[theme];
+
+    // Apply header color
+    document.getElementById("header")?.style.setProperty("background-color", colors.header);
+
+    // Apply button color
+    document.querySelectorAll("button").forEach(button => {
+      if (!button.classList.contains("color-swatch") && !button.classList.contains("notification-archive-btn")) {
+        button.style.backgroundColor = colors.button;
+        button.style.borderColor = colors.button;
+      }
+    });
+
+    // Apply link color
+    document.querySelectorAll("a").forEach(link => {
+      link.style.color = colors.link;
+    });
+  });
+});
+
+function applyThemePreset(themeName) {
+  const colors = themePresets[themeName];
+  if (!colors) return;
+
+  // Apply header color
+  document.getElementById("header")?.style.setProperty("background-color", colors.header);
+
+  // Apply button color
+  document.querySelectorAll("button").forEach(button => {
+    if (!button.classList.contains("color-swatch")) {
+      button.style.backgroundColor = colors.button;
+      button.style.borderColor = colors.button;
+    }
+  });
+
+  // Apply link color
+  document.querySelectorAll("a").forEach(link => {
+    link.style.color = colors.link;
+  });
+}
+
 document.getElementById("debug-btn").addEventListener("click", addRandomNotification);
 
 //–– Initialize ––//
 setCurrentDate();
-initDebugInfo();
 renderList();
 renderDropdownNotifications();
+setInterval(setCurrentDate, 1000);
+
+applyThemePreset("maroon");

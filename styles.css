@@ -210,13 +210,15 @@ select {
     background-color: #e5e7eb;
     cursor: pointer;
     border-radius: 6px;
-    color: #374151;
+    color: #e5e7eb;
     transition: background-color 0.3s ease, color 0.3s ease;
+    opacity: 0.5;
 }
 
 .tab-button.active {
     background-color: #3b82f6;
     color: white;
+    opacity: 1.0;
 }
 
 /* Tab Bar (Tabs + Actions) */
@@ -292,69 +294,6 @@ select {
 
 .notification-archive-btn:active {
   transform: scale(0.95);
-}
-
-/* Debug Button */
-#debug-btn {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #f59e0b;
-    border: none;
-    color: white;
-    padding: 8px 14px;
-    font-weight: bold;
-    border-radius: 6px;
-    cursor: pointer;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-    z-index: 100;
-    transition: background-color 0.3s ease;
-}
-
-#debug-btn:hover {
-    background-color: #d97706;
-}
-
-/* Debug Info Box */
-#debug-info {
-    position: fixed;
-    bottom: 10px;
-    right: 10px;
-    background: white;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 12px 16px;
-    max-width: 300px;
-    font-size: 0.9em;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-    color: #374151;
-    user-select: none;
-}
-
-#debug-info h3 {
-    margin-top: 0;
-    font-size: 1.1em;
-    margin-bottom: 8px;
-}
-
-#debug-info ul {
-    list-style: none;
-    padding-left: 0;
-    margin: 0 0 10px 0;
-}
-
-#debug-info ul li {
-    margin-bottom: 4px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-#debug-info .color-box {
-    width: 16px;
-    height: 16px;
-    border-radius: 4px;
-    display: inline-block;
 }
 
 /* Notification Dropdown */
@@ -495,4 +434,58 @@ select {
   margin-left: 8px;
   flex-shrink: 0;
   white-space: nowrap;
+}
+
+.debug-panel {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem;
+  z-index: 1000;
+}
+
+.floating-btn,
+.color-theme-btn {
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  font-size: 0.875rem;
+  transition: background-color 0.3s;
+}
+
+.color-theme-btn {
+  background-color: #374151;
+}
+
+.color-theme-btn:hover,
+.floating-btn:hover {
+  opacity: 0.85;
+}
+
+#color-palette-buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 0.4rem;
+}
+
+.color-swatch {
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 2px solid white;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.color-swatch:hover {
+  transform: scale(1.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }

@@ -11,13 +11,9 @@
 </head>
 
 <body>
-    <div class="header">
+    <div class="header" id="header">
         <div class="header-left">
-            <!-- Example SVG logo -->
-            <svg class="logo-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32"
-                fill="currentColor">
-                <path d="M3 3h18v2H3V3zm0 4h18v2H3V7zm0 4h12v2H3v-2zm0 4h12v2H3v-2zm0 4h18v2H3v-2z" />
-            </svg>
+            <img src="./img/uvle.png" style="max-height: 35px;" />
             <div class="header-logo">UVLê</div>
         </div>
 
@@ -110,15 +106,31 @@
         </div>
     </div>
 
-    <button id="debug-btn">Debug Add</button>
+    <div class="debug-panel">
+        <!-- Debug Add Button -->
+        <button id="debug-btn" class="floating-btn">Debug Add</button>
 
-    <div id="debug-info" style="display:none;">
-        <h3>Possible Tags</h3>
-        <ul id="tags-list"></ul>
-        <h3>Sample Titles & Icons</h3>
-        <ul id="titles-list"></ul>
-        <h3>Sample Times</h3>
-        <ul id="times-list"></ul>
+        <!-- Preset Color Palettes -->
+        <div id="color-palette-buttons" style="display: flex; gap: 8px; margin-top: 1rem;">
+            <button class="color-swatch" data-theme="maroon" style="background-color: #800000;"></button>
+            <button class="color-swatch" data-theme="orange" style="background-color: #ff8c00;"></button>
+            <button class="color-swatch" data-theme="gold" style="background-color: #FFD700;"></button>
+            <button class="color-swatch" data-theme="forest" style="background-color: #228B22;"></button>
+            <button class="color-swatch" data-theme="royalBlue" style="background-color: #4169E1;"></button>
+            <button class="color-swatch" data-theme="teal" style="background-color: #008080;"></button>
+            <button class="color-swatch" data-theme="violet" style="background-color: #8A2BE2;"></button>
+            <button class="color-swatch" data-theme="pink" style="background-color: #ff69b4;"></button>
+            <button class="color-swatch" data-theme="mono" style="background-color: #333333;"></button>
+
+            <button class="color-swatch" data-theme="purpleOrange"
+                style="background: linear-gradient(90deg, #8A2BE2 50%, #FF8C00 50%);"></button>
+            <button class="color-swatch" data-theme="redBlue"
+                style="background: linear-gradient(90deg, #DC143C 50%, #4169E1 50%);"></button>
+            <button class="color-swatch" data-theme="tealCoral"
+                style="background: linear-gradient(90deg, #008080 50%, #FF6F61 50%);"></button>
+            <button class="color-swatch" data-theme="yellowPurple"
+                style="background: linear-gradient(90deg, #FFD700 50%, #6A0DAD 50%);"></button>
+        </div>
     </div>
 
     <script src="script.js"></script>
