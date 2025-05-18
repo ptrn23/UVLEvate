@@ -3,29 +3,127 @@ const notificationClasses = {
   Announcement: {
     mainTag: "Announcement",
     titles: [
-      { title: "Exam schedule released", icon: "📅" },
-      { title: "New assignment posted", icon: "📝" },
-      { title: "Guest lecture tomorrow", icon: "🎤" },
-      { title: "Campus closed on Friday", icon: "🏫" }
+      { title: "Finals week schedule released", icon: "📚" },
+      { title: "End of classes schedule released", icon: "🛎️" },
+      { title: "Start of classes soon", icon: "🚀" },
+      { title: "Campus closed tomorrow", icon: "📵" },
+      { title: "Moving to online classes tomorrow", icon: "💻" },
+      { title: "Moving to hybrid classes tomorrow", icon: "🔁" },
+      { title: "Moving to face-to-face classes tomorrow", icon: "🏫" },
+      { title: "Classes suspended for heavy rain", icon: "🌧️" },
+      { title: "Classes suspended for earthquake", icon: "🌎" },
+      { title: "New campus policies announced", icon: "📢" },
+      { title: "Building maintenance notice", icon: "🚧" },
+      { title: "Orientation for new students", icon: "🎓" },
+      { title: "Faculty meeting announced", icon: "👥" },
+      { title: "Library closed this weekend", icon: "📕" },
+      { title: "Course registration opens soon", icon: "🗓️" },
+      { title: "Tuition payment deadline approaching", icon: "💰" }
     ],
-    extraTags: ["Course 101", "Course 102", "Course 103"]
+    extraTags: []
   },
   General: {
     mainTag: "General",
     titles: [
-      { title: "System maintenance", icon: "🛠️" },
-      { title: "Holiday announcement", icon: "🎉" },
-      { title: "New feature released", icon: "🚀" }
+      { title: "Scheduled maintenance this weekend", icon: "🗓️" },
+      { title: "System update completed", icon: "✅" },
+      { title: "New features announced", icon: "🆕" },
+      { title: "Performance improvements deployed", icon: "⚡" },
+      { title: "User interface updated", icon: "🎨" },
+      { title: "Login issues resolved", icon: "🔐" },
+      { title: "Bug fixes in latest release", icon: "🔧" },
+      { title: "Mobile version now available", icon: "📱" },
+      { title: "Beware of phishing emails", icon: "⚠️" },
+      { title: "Beware of suspicious links", icon: "🔗" },
+      { title: "Security update applied", icon: "🛡️" },
+      { title: "Two-factor authentication now supported", icon: "📲" },
+      { title: "Password reset instructions updated", icon: "📝" },
+      { title: "Unexpected downtime report", icon: "❗" },
+      { title: "Known issues being addressed", icon: "🐞" },
+      { title: "Help center updated", icon: "❓" },
+      { title: "Feedback form now live", icon: "💬" }
     ],
     extraTags: []
   },
   Grades: {
     mainTag: "Grades",
     titles: [
-      { title: "Grades released for Course 101", icon: "📊" },
-      { title: "Grade appeal deadline", icon: "⏰" }
+      { title: "Grade appeal period announced", icon: "📢" },
+      { title: "Grade appeal starts soon", icon: "🕒" },
+      { title: "Grade appeals now open", icon: "📬" },
+      { title: "Grade appeal results available", icon: "📄" },
+      { title: "Changes in grade computation", icon: "🧮" },
+      { title: "Grade submission deadline approaching", icon: "📅" },
+      { title: "Final grades under review", icon: "🔍" },
+      { title: "Midterm grades available", icon: "📝" },
+      { title: "Instructor comments on grades released", icon: "💬" },
+      { title: "Grade revisions ongoing", icon: "♻️" },
+      { title: "Delayed release of grades", icon: "⏳" },
+      { title: "System issue affecting grade visibility", icon: "⚠️" }
     ],
-    extraTags: ["Course 101", "Course 102"]
+    extraTags: [
+      "CS 10", "CS 11", "CS 12", "CS 20", "CS 21", "CS 32", "CS 33", "CS 136", 
+      "CS 138", "CS 140", "CS 150", "CS 165", "CS 191", "CS 145", "CS 153", "CS 180", "CS 192", "CS 194", 
+      "CS 195", "CS 133", "CS 198", "CS 132", "CS 155", "CS 196", "CS 199/200",
+      "FN 101", "FN 102", "FN 121", "FN 122", "FN 123", "FN 131", "FN 124",
+      "FN 125", "FN 132", "FN 133", "FN 141", "FN 134", "FN 141.1", "FN 142", "FN 199", "FN 136",
+      "FN 126", "FN 146", "FN 200"
+    ]
+  },
+  Deadlines: {
+    mainTag: "Deadlines",
+    titles: [
+      { title: "Project submission deadline", icon: "📁" },
+      { title: "Quiz deadline approaching", icon: "📝" },
+      { title: "Lab report submission due", icon: "🧪" },
+      { title: "Essay deadline reminder", icon: "🖊️" },
+      { title: "Online submission cut-off", icon: "🌐" },
+      { title: "Final paper deadline", icon: "📄" },
+      { title: "Programming assignment due soon", icon: "💻" },
+      { title: "Nutrition analysis report due", icon: "🥗" },
+      { title: "Last day to submit research paper", icon: "📚" },
+      { title: "Deadline for code repository submission", icon: "🗃️" },
+      { title: "Group project deadline approaching", icon: "👥" },
+      { title: "Deadline for lab journal upload", icon: "📓" },
+      { title: "Multimedia project due tomorrow", icon: "🎬" },
+      { title: "Midterm assessment submission deadline", icon: "📆" },
+      { title: "Final report deadline this week", icon: "🚨" },
+      { title: "Capstone draft due soon", icon: "🏗️" },
+      { title: "Data analysis submission required", icon: "📊" },
+      { title: "Practical exam write-up deadline", icon: "🧾" }
+    ],
+    extraTags: [
+      "CS 10", "CS 11", "CS 12", "CS 20", "CS 21", "CS 32", "CS 33", "CS 136", 
+      "CS 138", "CS 140", "CS 150", "CS 165", "CS 191", "CS 145", "CS 153", "CS 180", "CS 192", "CS 194", 
+      "CS 195", "CS 133", "CS 198", "CS 132", "CS 155", "CS 196", "CS 199/200",
+      "FN 101", "FN 102", "FN 121", "FN 122", "FN 123", "FN 131", "FN 124",
+      "FN 125", "FN 132", "FN 133", "FN 141", "FN 134", "FN 141.1", "FN 142", "FN 199", "FN 136",
+      "FN 126", "FN 146", "FN 200"
+    ]
+  },
+  Holidays: {
+    mainTag: "Holidays",
+    titles: [
+      { title: "No classes: New Year's Day", icon: "🎆" },
+      { title: "No classes: EDSA People Power Revolution", icon: "✊" },
+      { title: "No classes: Holy Week", icon: "⛪" },
+      { title: "No classes: Araw ng Kagitingan", icon: "🇵🇭" },
+      { title: "No classes: Labor Day", icon: "🛠️" },
+      { title: "No classes: Independence Day", icon: "🎉" },
+      { title: "No classes: Ninoy Aquino Day", icon: "🕊️" },
+      { title: "No classes: National Heroes Day", icon: "🦸" },
+      { title: "No classes: All Saints’ Day", icon: "🕯️" },
+      { title: "No classes: Bonifacio Day", icon: "🗡️" },
+      { title: "No classes: Christmas Day", icon: "🎄" },
+      { title: "No classes: Rizal Day", icon: "📖" },
+      { title: "No classes: Chinese New Year", icon: "🐉" },
+      { title: "No classes: Eid’l Fitr", icon: "🌙" },
+      { title: "No classes: Eid’l Adha", icon: "🕋" },
+      { title: "Holiday advisory posted", icon: "📢" },
+      { title: "Holiday update: Classes suspended", icon: "📅" },
+      { title: "Holiday break starts soon", icon: "🧳" }
+    ],
+    extraTags: []
   }
 };
 
@@ -33,11 +131,57 @@ const notificationClasses = {
 const possibleTags = {
   General: "#3b82f6",
   Announcement: "#10b981",
-  "Course 101": "#f59e0b",
-  "Course 102": "#a78bfa",
-  "Course 103": "#f472b6",
-  Deadline: "#ef4444",
-  Grades: "#8b5cf6"
+  Deadlines: "#ef4444",
+  Grades: "#8b5cf6",
+  Holidays: "#F71414",
+
+  // CS Courses
+  "CS 10": "#16a34a",
+  "CS 11": "#0ea5e9",
+  "CS 12": "#d97706",
+  "CS 20": "#6366f1",
+  "CS 21": "#f43f5e",
+  "CS 32": "#14b8a6",
+  "CS 33": "#facc15",
+  "CS 136": "#8b5cf6",
+  "CS 138": "#ec4899",
+  "CS 140": "#10b981",
+  "CS 150": "#f97316",
+  "CS 165": "#3b82f6",
+  "CS 191": "#a855f7",
+  "CS 145": "#22c55e",
+  "CS 153": "#ef4444",
+  "CS 180": "#e11d48",
+  "CS 192": "#0f766e",
+  "CS 194": "#7c3aed",
+  "CS 195": "#f59e0b",
+  "CS 133": "#4ade80",
+  "CS 198": "#6d28d9",
+  "CS 132": "#f43f5e",
+  "CS 155": "#fde047",
+  "CS 196": "#0284c7",
+  "CS 199/200": "#b91c1c",
+
+  // FN Courses
+  "FN 101": "#3b82f6",
+  "FN 102": "#10b981",
+  "FN 121": "#f59e0b",
+  "FN 122": "#6366f1",
+  "FN 123": "#ef4444",
+  "FN 131": "#22c55e",
+  "FN 124": "#e879f9",
+  "FN 125": "#f97316",
+  "FN 132": "#14b8a6",
+  "FN 133": "#f472b6",
+  "FN 141": "#8b5cf6",
+  "FN 134": "#fcd34d",
+  "FN 141.1": "#60a5fa",
+  "FN 142": "#e11d48",
+  "FN 199": "#c084fc",
+  "FN 136": "#15803d",
+  "FN 126": "#a855f7",
+  "FN 146": "#facc15",
+  "FN 200": "#2563eb"
 };
 
 // Notification storage
@@ -62,9 +206,9 @@ function randomDateWithinLastDays(days = 2) {
 function timeAgo(date) {
   const seconds = Math.floor((Date.now() - date.getTime()) / 1000);
   if (seconds < 60) return "just now";
-  if (seconds < 3600) return `${Math.floor(seconds/60)} minutes ago`;
-  if (seconds < 86400) return `${Math.floor(seconds/3600)} hours ago`;
-  return `${Math.floor(seconds/86400)} days ago`;
+  if (seconds < 3600) return `${Math.floor(seconds / 60)} minutes ago`;
+  if (seconds < 86400) return `${Math.floor(seconds / 3600)} hours ago`;
+  return `${Math.floor(seconds / 86400)} days ago`;
 }
 
 //–– Rendering ––//
@@ -77,7 +221,7 @@ function renderList() {
       ? openedNotifications
       : archivedNotifications;
 
-  list.sort((a,b) => b.time - a.time);
+  list.sort((a, b) => b.time - a.time);
   container.innerHTML = "";
 
   if (!list.length) {
@@ -107,7 +251,7 @@ function renderList() {
       selectedNotificationId = notif.id;
       if (currentTab === "new") {
         openedNotifications.unshift(notif);
-        newNotifications = newNotifications.filter(n=>n.id!==notif.id);
+        newNotifications = newNotifications.filter(n => n.id !== notif.id);
         currentTab = "opened";
         updateTabsUI();
       }
@@ -141,15 +285,15 @@ function renderList() {
     // Archive/Unarchive
     const btn = document.createElement("button");
     btn.className = "notification-archive-btn";
-    btn.textContent = (currentTab==="archived") ? "Unarchive" : "Archive";
-    btn.onclick = e=> {
+    btn.textContent = (currentTab === "archived") ? "Unarchive" : "Archive";
+    btn.onclick = e => {
       e.stopPropagation();
-      if (currentTab==="archived") {
-        archivedNotifications = archivedNotifications.filter(n=>n.id!==notif.id);
+      if (currentTab === "archived") {
+        archivedNotifications = archivedNotifications.filter(n => n.id !== notif.id);
         openedNotifications.unshift(notif);
       } else {
-        if (currentTab==="new") newNotifications   = newNotifications.filter(n=>n.id!==notif.id);
-        if (currentTab==="opened") openedNotifications = openedNotifications.filter(n=>n.id!==notif.id);
+        if (currentTab === "new") newNotifications = newNotifications.filter(n => n.id !== notif.id);
+        if (currentTab === "opened") openedNotifications = openedNotifications.filter(n => n.id !== notif.id);
         archivedNotifications.unshift(notif);
       }
       renderList();
@@ -162,7 +306,7 @@ function renderList() {
 
 function renderContent(notif) {
   document.getElementById("content-title").textContent = notif.title;
-  document.getElementById("content-text").textContent  = notif.content;
+  document.getElementById("content-text").textContent = notif.content;
 }
 
 //–– Actions ––//
@@ -177,7 +321,7 @@ function clearAllNotifications() {
 }
 
 function markAllAsRead() {
-  if (currentTab==="new") {
+  if (currentTab === "new") {
     openedNotifications = [...newNotifications, ...openedNotifications];
     newNotifications = [];
     selectedNotificationId = null;
@@ -204,14 +348,14 @@ function updateTabsUI() {
   document.querySelectorAll(".tab-button").forEach(btn => btn.classList.remove("active"));
   document.querySelectorAll(".tab-button")
     .forEach(btn => {
-      if (btn.textContent.toLowerCase()===currentTab) 
+      if (btn.textContent.toLowerCase() === currentTab)
         btn.classList.add("active");
     });
 }
 
 function setCurrentDate() {
   document.getElementById("current-date").textContent =
-    new Date().toLocaleDateString(undefined, { weekday:"short", month:"short", day:"numeric", year:"numeric" });
+    new Date().toLocaleDateString(undefined, { weekday: "short", month: "short", day: "numeric", year: "numeric" });
 }
 
 //–– Random Notification Generator ––//
@@ -219,38 +363,38 @@ function setCurrentDate() {
 function addRandomNotification() {
   const classes = Object.keys(notificationClasses);
   const clsName = classes[getRandomInt(classes.length)];
-  const cls    = notificationClasses[clsName];
+  const cls = notificationClasses[clsName];
 
   const titleObj = cls.titles[getRandomInt(cls.titles.length)];
 
   const tags = [cls.mainTag];
   const extras = cls.extraTags.slice().sort(() => 0.5 - Math.random());
-  const extraCount = getRandomInt(Math.min(3, extras.length+1));
+  const extraCount = getRandomInt(Math.min(3, extras.length + 1));
   tags.push(...extras.slice(0, extraCount));
 
   const newNotif = {
     id: Date.now() + getRandomInt(1000),
     title: titleObj.title,
-    content:`This is a notification about “${titleObj.title}.”`,
-    time:   randomDateWithinLastDays(2),
+    content: `This is a notification about “${titleObj.title}.”`,
+    time: randomDateWithinLastDays(2),
     tags, icon: titleObj.icon,
     checked: false,
     justAdded: true
   };
 
   newNotifications.unshift(newNotif);
-  if (currentTab==="new") renderList();
+  if (currentTab === "new") renderList();
 }
 
 //–– Debug Info ––//
 
 function initDebugInfo() {
-  const tagsList   = document.getElementById("tags-list");
+  const tagsList = document.getElementById("tags-list");
   const titlesList = document.getElementById("titles-list");
-  const timesList  = document.getElementById("times-list");
+  const timesList = document.getElementById("times-list");
 
   // tags
-  for (const [tag,color] of Object.entries(possibleTags)) {
+  for (const [tag, color] of Object.entries(possibleTags)) {
     const li = document.createElement("li");
     li.innerHTML = `<span class="color-box" style="background-color:${color}"></span>${tag}`;
     tagsList.appendChild(li);
@@ -264,9 +408,9 @@ function initDebugInfo() {
     })
   );
   // times
-  [30,5*60,2*3600,24*3600,3*24*3600].forEach(sec => {
+  [30, 5 * 60, 2 * 3600, 24 * 3600, 3 * 24 * 3600].forEach(sec => {
     const li = document.createElement("li");
-    const date = new Date(Date.now() - sec*1000);
+    const date = new Date(Date.now() - sec * 1000);
     li.textContent = timeAgo(date);
     timesList.appendChild(li);
   });
