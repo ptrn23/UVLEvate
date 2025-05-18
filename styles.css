@@ -16,6 +16,7 @@ body {
     color: white;
     padding: 10px 20px;
     position: relative;
+    transition: background-color 0.3s ease;
 }
 
 .header-left,
@@ -96,11 +97,12 @@ body {
 
 .notification-item:hover {
     background-color: #e5e7eb;
+    transition: background-color 0.3s ease;
 }
 
 .notification-item.active {
-  background-color: #e0f2fe; /* light blue */
-  transition: background-color 0.4s ease;
+  background-color: #e0f2fe;
+  transition: background-color 0.3s ease;
 }
 
 .notification-title {
@@ -190,12 +192,23 @@ select {
     cursor: pointer;
     border-radius: 6px;
     color: #e5e7eb;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease, opacity 0.3s ease;
     opacity: 0.5;
 }
 
 .tab-button.active {
     color: white;
+    opacity: 1.0;
+}
+
+.action-button {
+    padding: 4px 12px;
+    border: none;
+    background-color: #e5e7eb;
+    cursor: pointer;
+    border-radius: 6px;
+    color: #e5e7eb;
+    transition: background-color 0.3s ease, color 0.3s ease, opacity 0.3s ease;
     opacity: 1.0;
 }
 
@@ -213,25 +226,6 @@ select {
 .tab-actions {
     display: flex;
     gap: 0.5rem;
-}
-
-/* Action Buttons */
-.action-btn {
-    background-color: #e5e7eb;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    padding: 8px 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #3b82f6;
-    font-weight: bold;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.action-btn:hover {
-    color: white;
 }
 
 /* Archive Button */

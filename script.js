@@ -795,7 +795,8 @@ const dropdown = document.getElementById("notification-dropdown");
 const dropdownList = document.getElementById("dropdown-notification-list");
 
 // Toggle dropdown
-bellIcon.addEventListener("click", () => {
+document.getElementById("notification-icon").addEventListener("click", () => {
+  const dropdown = document.getElementById("notification-dropdown");
   dropdown.classList.toggle("hidden");
 });
 
@@ -953,6 +954,11 @@ document.querySelectorAll(".color-swatch").forEach(btn => {
     document.querySelectorAll("a").forEach(link => {
       link.style.color = colors.link;
     });
+
+    // Apply notification active color
+    document.querySelectorAll(".notification-item.active").forEach(item => {
+      item.style.backgroundColor = colors.notificationActive;
+    });
   });
 });
 
@@ -965,7 +971,7 @@ function applyThemePreset(themeName) {
 
   // Apply button color
   document.querySelectorAll("button").forEach(button => {
-    if (!button.classList.contains("color-swatch")) {
+    if (!button.classList.contains("color-swatch") && !button.classList.contains("notification-archive-btn")) {
       button.style.backgroundColor = colors.button;
       button.style.borderColor = colors.button;
     }
@@ -975,8 +981,25 @@ function applyThemePreset(themeName) {
   document.querySelectorAll("a").forEach(link => {
     link.style.color = colors.link;
   });
+
+  // Apply notification active color
+  document.querySelectorAll(".notification-item.active").forEach(item => {
+    item.style.backgroundColor = colors.notificationActive;
+  });
 }
 
+const profiles = [
+  { name: "Joaquin Enrique Luistro", img: "./img/blank.png" },
+  { name: "Paul Timothy Necasio", img: "./img/paul.jpg" },
+  { name: "Garlu Victor Nepomuceno", img: "./img/blank.png" },
+  { name: "Kelly Allyson Vergara", img: "./img/blank.png" },
+  { name: "Julian Carlos Yabut", img: "./img/blank.png" }
+];
+
+const randomProfile = profiles[Math.floor(Math.random() * profiles.length)];
+
+document.getElementById("profile-name").textContent = randomProfile.name;
+document.getElementById("profile-pic").src = randomProfile.img;
 document.getElementById("debug-btn").addEventListener("click", addRandomNotification);
 
 //–– Initialize ––//
