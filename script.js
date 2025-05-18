@@ -62,8 +62,8 @@ const notificationClasses = {
       { title: "System issue affecting grade visibility", icon: "⚠️" }
     ],
     extraTags: [
-      "CS 10", "CS 11", "CS 12", "CS 20", "CS 21", "CS 32", "CS 33", "CS 136", 
-      "CS 138", "CS 140", "CS 150", "CS 165", "CS 191", "CS 145", "CS 153", "CS 180", "CS 192", "CS 194", 
+      "CS 10", "CS 11", "CS 12", "CS 20", "CS 21", "CS 32", "CS 33", "CS 136",
+      "CS 138", "CS 140", "CS 150", "CS 165", "CS 191", "CS 145", "CS 153", "CS 180", "CS 192", "CS 194",
       "CS 195", "CS 133", "CS 198", "CS 132", "CS 155", "CS 196", "CS 199/200",
       "FN 101", "FN 102", "FN 121", "FN 122", "FN 123", "FN 131", "FN 124",
       "FN 125", "FN 132", "FN 133", "FN 141", "FN 134", "FN 141.1", "FN 142", "FN 199", "FN 136",
@@ -93,8 +93,8 @@ const notificationClasses = {
       { title: "Practical exam write-up deadline", icon: "🧾" }
     ],
     extraTags: [
-      "CS 10", "CS 11", "CS 12", "CS 20", "CS 21", "CS 32", "CS 33", "CS 136", 
-      "CS 138", "CS 140", "CS 150", "CS 165", "CS 191", "CS 145", "CS 153", "CS 180", "CS 192", "CS 194", 
+      "CS 10", "CS 11", "CS 12", "CS 20", "CS 21", "CS 32", "CS 33", "CS 136",
+      "CS 138", "CS 140", "CS 150", "CS 165", "CS 191", "CS 145", "CS 153", "CS 180", "CS 192", "CS 194",
       "CS 195", "CS 133", "CS 198", "CS 132", "CS 155", "CS 196", "CS 199/200",
       "FN 101", "FN 102", "FN 121", "FN 122", "FN 123", "FN 131", "FN 124",
       "FN 125", "FN 132", "FN 133", "FN 141", "FN 134", "FN 141.1", "FN 142", "FN 199", "FN 136",
@@ -198,7 +198,7 @@ function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
 
-function randomDateWithinLastDays(days = 2) {
+function randomDateWithinLastDays(days = 7) {
   const now = Date.now();
   return new Date(now - Math.random() * days * 24 * 3600 * 1000);
 }
@@ -317,6 +317,7 @@ function clearAllNotifications() {
   archivedNotifications = [];
   selectedNotificationId = null;
   renderList();
+  renderDropdownNotifications();
   renderContent({ title: "Select a notification", content: "" });
 }
 
@@ -326,6 +327,7 @@ function markAllAsRead() {
     newNotifications = [];
     selectedNotificationId = null;
     currentTab = "opened";
+    renderDropdownNotifications();
     updateTabsUI();
     renderList();
     renderContent({ title: "Select a notification", content: "" });
@@ -383,6 +385,7 @@ function addRandomNotification() {
   };
 
   newNotifications.unshift(newNotif);
+  renderDropdownNotifications();
   if (currentTab === "new") renderList();
 }
 
@@ -416,9 +419,46 @@ function initDebugInfo() {
   });
 }
 
+const bellIcon = document.querySelectorAll(".header-icon")[1]; // Assuming second icon is the bell
+const dropdown = document.getElementById("notification-dropdown");
+const dropdownList = document.getElementById("dropdown-notification-list");
+
+// Toggle dropdown
+bellIcon.addEventListener("click", () => {
+  dropdown.classList.toggle("hidden");
+});
+
+function renderDropdownNotifications() {
+  dropdownList.innerHTML = "";
+
+  const latestNew = newNotifications
+    .slice() // shallow copy so we don't mutate original
+    .sort((a, b) => b.time - a.time)
+    .slice(0, 5); // max 5
+
+  if (latestNew.length === 0) {
+    const li = document.createElement("li");
+    li.textContent = "No new notifications";
+    li.style.color = "#777";
+    dropdownList.appendChild(li);
+    return;
+  }
+
+  latestNew.forEach((notif) => {
+    const li = document.createElement("li");
+    li.textContent = notif.title;
+    li.style.color = "#333"; // Ensure visibility
+    li.onclick = () => {
+      window.location.href = "notifications.html";
+    };
+    dropdownList.appendChild(li);
+  });
+}
+
 document.getElementById("debug-btn").addEventListener("click", addRandomNotification);
 
 //–– Initialize ––//
 setCurrentDate();
 initDebugInfo();
 renderList();
+renderDropdownNotifications();
