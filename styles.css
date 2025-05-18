@@ -129,28 +129,7 @@ body {
     font-size: smaller;
     font-weight: bold;
     color: white;
-    letter-spacing: 0.2rem;
     text-transform: uppercase;
-}
-
-.tag-General {
-    background-color: #3b82f6;
-}
-
-.tag-Announcement {
-    background-color: #10b981;
-}
-
-.tag-Course-101 {
-    background-color: #f59e0b;
-}
-
-.tag-Deadline {
-    background-color: #ef4444;
-}
-
-.tag-Grades {
-    background-color: #8b5cf6;
 }
 
 .notification-icons {
@@ -216,7 +195,6 @@ select {
 }
 
 .tab-button.active {
-    background-color: #3b82f6;
     color: white;
     opacity: 1.0;
 }
@@ -253,7 +231,6 @@ select {
 }
 
 .action-btn:hover {
-    background-color: #3b82f6;
     color: white;
 }
 
@@ -449,7 +426,6 @@ select {
 
 .floating-btn,
 .color-theme-btn {
-  background-color: #2563eb;
   color: white;
   border: none;
   border-radius: 0.5rem;

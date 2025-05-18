@@ -3,63 +3,288 @@ const notificationClasses = {
   Announcement: {
     mainTag: "Announcement",
     titles: [
-      { title: "Finals week schedule released", icon: "📚" },
-      { title: "End of classes schedule released", icon: "🛎️" },
-      { title: "Start of classes soon", icon: "🚀" },
-      { title: "Campus closed tomorrow", icon: "📵" },
-      { title: "Moving to online classes tomorrow", icon: "💻" },
-      { title: "Moving to hybrid classes tomorrow", icon: "🔁" },
-      { title: "Moving to face-to-face classes tomorrow", icon: "🏫" },
-      { title: "Classes suspended for heavy rain", icon: "🌧️" },
-      { title: "Classes suspended for earthquake", icon: "🌎" },
-      { title: "New campus policies announced", icon: "📢" },
-      { title: "Building maintenance notice", icon: "🚧" },
-      { title: "Orientation for new students", icon: "🎓" },
-      { title: "Faculty meeting announced", icon: "👥" },
-      { title: "Library closed this weekend", icon: "📕" },
-      { title: "Course registration opens soon", icon: "🗓️" },
-      { title: "Tuition payment deadline approaching", icon: "💰" }
+      {
+        title: "Finals week schedule released",
+        icon: "📚",
+        template: () =>
+          "The finals week schedule has been released. Please check your course calendar."
+      },
+      {
+        title: "End of classes schedule released",
+        icon: "🛎️",
+        template: () =>
+          "The schedule for the end of classes is now available."
+      },
+      {
+        title: "Start of classes soon",
+        icon: "🚀",
+        template: () =>
+          "Classes for the new semester are starting soon. Get ready!"
+      },
+      {
+        title: "Campus closed tomorrow",
+        icon: "📵",
+        template: () =>
+          "Campus will be closed tomorrow. Stay safe."
+      },
+      {
+        title: "Moving to online classes tomorrow",
+        icon: "💻",
+        template: () =>
+          "Classes will be held online tomorrow. Check your email for links."
+      },
+      {
+        title: "Moving to hybrid classes tomorrow",
+        icon: "🔁",
+        template: () =>
+          "Tomorrow's classes will follow a hybrid format. Please prepare accordingly."
+      },
+      {
+        title: "Moving to face-to-face classes tomorrow",
+        icon: "🏫",
+        template: () =>
+          "Face-to-face classes resume tomorrow. Follow campus health protocols."
+      },
+      {
+        title: "Classes suspended for heavy rain",
+        icon: "🌧️",
+        template: () =>
+          "All classes are suspended tomorrow due to heavy rain warnings. Stay indoors!"
+      },
+      {
+        title: "Classes suspended for earthquake",
+        icon: "🌎",
+        template: () =>
+          "Classes are suspended today due to recent earthquake activity. Safety first!"
+      },
+      {
+        title: "New campus policies announced",
+        icon: "📢",
+        template: () =>
+          "New campus policies have been announced. Please review them carefully."
+      },
+      {
+        title: "Building maintenance notice",
+        icon: "🚧",
+        template: () =>
+          "Building maintenance will occur soon. Access may be limited during this time."
+      },
+      {
+        title: "Orientation for new students",
+        icon: "🎓",
+        template: () =>
+          "Orientation for new students will be held soon. Don't miss it!"
+      },
+      {
+        title: "Faculty meeting announced",
+        icon: "👥",
+        template: () =>
+          "Faculty meeting has been scheduled. Please check your department announcements."
+      },
+      {
+        title: "Library closed this weekend",
+        icon: "📕",
+        template: () =>
+          "The library will be closed this weekend for renovations. Plan accordingly."
+      },
+      {
+        title: "Course registration opens soon",
+        icon: "🗓️",
+        template: () =>
+          "Course registration opens soon. Prepare your course list in advance."
+      },
+      {
+        title: "Tuition payment deadline approaching",
+        icon: "💰",
+        template: () =>
+          "Reminder: Tuition payment deadline is approaching. Avoid late fees!"
+      }
     ],
     extraTags: []
   },
   General: {
     mainTag: "General",
     titles: [
-      { title: "Scheduled maintenance this weekend", icon: "🗓️" },
-      { title: "System update completed", icon: "✅" },
-      { title: "New features announced", icon: "🆕" },
-      { title: "Performance improvements deployed", icon: "⚡" },
-      { title: "User interface updated", icon: "🎨" },
-      { title: "Login issues resolved", icon: "🔐" },
-      { title: "Bug fixes in latest release", icon: "🔧" },
-      { title: "Mobile version now available", icon: "📱" },
-      { title: "Beware of phishing emails", icon: "⚠️" },
-      { title: "Beware of suspicious links", icon: "🔗" },
-      { title: "Security update applied", icon: "🛡️" },
-      { title: "Two-factor authentication now supported", icon: "📲" },
-      { title: "Password reset instructions updated", icon: "📝" },
-      { title: "Unexpected downtime report", icon: "❗" },
-      { title: "Known issues being addressed", icon: "🐞" },
-      { title: "Help center updated", icon: "❓" },
-      { title: "Feedback form now live", icon: "💬" }
+      {
+        title: "Scheduled maintenance this weekend",
+        icon: "🗓️",
+        template: () =>
+          "System maintenance is scheduled this weekend. Expect brief outages."
+      },
+      {
+        title: "System update completed",
+        icon: "✅",
+        template: () =>
+          "The latest system update has been successfully completed. Enjoy new features!"
+      },
+      {
+        title: "New features announced",
+        icon: "🆕",
+        template: () =>
+          "New features have been added to the system. Check them out!"
+      },
+      {
+        title: "Performance improvements deployed",
+        icon: "⚡",
+        template: () =>
+          "Performance improvements have been deployed for faster load times and better reliability."
+      },
+      {
+        title: "User interface updated",
+        icon: "🎨",
+        template: () =>
+          "The user interface has been refreshed for a better experience."
+      },
+      {
+        title: "Login issues resolved",
+        icon: "🔐",
+        template: () =>
+          "Recent login issues have been resolved. You can now access your account without problems."
+      },
+      {
+        title: "Bug fixes in latest release",
+        icon: "🔧",
+        template: () =>
+          "The latest release includes several important bug fixes."
+      },
+      {
+        title: "Mobile version now available",
+        icon: "📱",
+        template: () =>
+          "The mobile version of our platform is now live! Download the app or visit on your phone."
+      },
+      {
+        title: "Beware of phishing emails",
+        icon: "⚠️",
+        template: () =>
+          "Be cautious of phishing emails. Do not click suspicious links or share your credentials."
+      },
+      {
+        title: "Beware of suspicious links",
+        icon: "🔗",
+        template: () =>
+          "Avoid clicking on suspicious links from unknown sources to protect your account."
+      },
+      {
+        title: "Security update applied",
+        icon: "🛡️",
+        template: () =>
+          "Important security updates have been applied to help protect your data."
+      },
+      {
+        title: "Two-factor authentication now supported",
+        icon: "📲",
+        template: () =>
+          "Two-factor authentication (2FA) is now supported. Enable it for enhanced account security."
+      },
+      {
+        title: "Password reset instructions updated",
+        icon: "📝",
+        template: () =>
+          "Instructions for password reset have been updated. Check your account settings if you need help."
+      },
+      {
+        title: "Unexpected downtime report",
+        icon: "❗",
+        template: () =>
+          "We experienced unexpected downtime earlier today. All services are now fully restored."
+      },
+      {
+        title: "Known issues being addressed",
+        icon: "🐞",
+        template: () =>
+          "We are aware of some issues and are actively working to resolve them. Thanks for your patience!"
+      },
+      {
+        title: "Help center updated",
+        icon: "❓",
+        template: () =>
+          "The help center has been updated with new FAQs and guides."
+      },
+      {
+        title: "Feedback form now live",
+        icon: "💬",
+        template: () =>
+          "Your feedback matters! The new feedback form is now live. Share your thoughts with us."
+      }
     ],
     extraTags: []
   },
   Grades: {
     mainTag: "Grades",
     titles: [
-      { title: "Grade appeal period announced", icon: "📢" },
-      { title: "Grade appeal starts soon", icon: "🕒" },
-      { title: "Grade appeals now open", icon: "📬" },
-      { title: "Grade appeal results available", icon: "📄" },
-      { title: "Changes in grade computation", icon: "🧮" },
-      { title: "Grade submission deadline approaching", icon: "📅" },
-      { title: "Final grades under review", icon: "🔍" },
-      { title: "Midterm grades available", icon: "📝" },
-      { title: "Instructor comments on grades released", icon: "💬" },
-      { title: "Grade revisions ongoing", icon: "♻️" },
-      { title: "Delayed release of grades", icon: "⏳" },
-      { title: "System issue affecting grade visibility", icon: "⚠️" }
+      {
+        title: "Grade appeal period announced",
+        icon: "📢",
+        template: () =>
+          "The grade appeal period has been announced. Make sure to review the timeline carefully."
+      },
+      {
+        title: "Grade appeal starts soon",
+        icon: "🕒",
+        template: () =>
+          "The grade appeal period will start soon. Prepare your documents."
+      },
+      {
+        title: "Grade appeals now open",
+        icon: "📬",
+        template: () =>
+          "Grade appeals are now open. Submit your appeals promptly."
+      },
+      {
+        title: "Grade appeal results available",
+        icon: "📄",
+        template: () =>
+          "Results for grade appeals are now available. Check your student portal."
+      },
+      {
+        title: "Changes in grade computation",
+        icon: "🧮",
+        template: () =>
+          "There are changes in the grade computation method. Please review the updated policy."
+      },
+      {
+        title: "Grade submission deadline approaching",
+        icon: "📅",
+        template: () =>
+          "The deadline for grade submission is approaching. Remind your instructors if needed."
+      },
+      {
+        title: "Final grades under review",
+        icon: "🔍",
+        template: () =>
+          "Final grades are currently under review. Results will be released soon."
+      },
+      {
+        title: "Midterm grades available",
+        icon: "📝",
+        template: () =>
+          "Midterm grades have been posted. Check your account for updates."
+      },
+      {
+        title: "Instructor comments on grades released",
+        icon: "💬",
+        template: () =>
+          "Instructor comments for your grades have been released. Review them online."
+      },
+      {
+        title: "Grade revisions ongoing",
+        icon: "♻️",
+        template: () =>
+          "Grade revisions are currently ongoing. Updates will be posted shortly."
+      },
+      {
+        title: "Delayed release of grades",
+        icon: "⏳",
+        template: () =>
+          "The release of grades has been delayed. We apologize for the inconvenience."
+      },
+      {
+        title: "System issue affecting grade visibility",
+        icon: "⚠️",
+        template: () =>
+          "There is a temporary system issue affecting grade visibility. Our team is working on a fix."
+      }
     ],
     extraTags: [
       "CS 10", "CS 11", "CS 12", "CS 20", "CS 21", "CS 32", "CS 33", "CS 136",
@@ -73,24 +298,114 @@ const notificationClasses = {
   Deadlines: {
     mainTag: "Deadlines",
     titles: [
-      { title: "Project submission deadline", icon: "📁" },
-      { title: "Quiz deadline approaching", icon: "📝" },
-      { title: "Lab report submission due", icon: "🧪" },
-      { title: "Essay deadline reminder", icon: "🖊️" },
-      { title: "Online submission cut-off", icon: "🌐" },
-      { title: "Final paper deadline", icon: "📄" },
-      { title: "Programming assignment due soon", icon: "💻" },
-      { title: "Nutrition analysis report due", icon: "🥗" },
-      { title: "Last day to submit research paper", icon: "📚" },
-      { title: "Deadline for code repository submission", icon: "🗃️" },
-      { title: "Group project deadline approaching", icon: "👥" },
-      { title: "Deadline for lab journal upload", icon: "📓" },
-      { title: "Multimedia project due tomorrow", icon: "🎬" },
-      { title: "Midterm assessment submission deadline", icon: "📆" },
-      { title: "Final report deadline this week", icon: "🚨" },
-      { title: "Capstone draft due soon", icon: "🏗️" },
-      { title: "Data analysis submission required", icon: "📊" },
-      { title: "Practical exam write-up deadline", icon: "🧾" }
+      {
+        title: "Project submission deadline",
+        icon: "📁",
+        template: () =>
+          "Reminder: A project submission deadline is approaching. Double-check your requirements and submit on time."
+      },
+      {
+        title: "Quiz deadline approaching",
+        icon: "📝",
+        template: () =>
+          "A quiz deadline is coming up soon. Make sure you’re prepared."
+      },
+      {
+        title: "Lab report submission due",
+        icon: "🧪",
+        template: () =>
+          "A lab report is due soon. Ensure all your data and analysis are complete."
+      },
+      {
+        title: "Essay deadline reminder",
+        icon: "🖊️",
+        template: () =>
+          "Don’t forget — an essay deadline is just around the corner. Wrap up those final edits!"
+      },
+      {
+        title: "Online submission cut-off",
+        icon: "🌐",
+        template: () =>
+          "Heads-up: The online submission window will close soon. Be sure to upload everything beforehand."
+      },
+      {
+        title: "Final paper deadline",
+        icon: "📄",
+        template: () =>
+          "A final paper is due soon. Make sure all citations and formatting are in place."
+      },
+      {
+        title: "Programming assignment due soon",
+        icon: "💻",
+        template: () =>
+          "Reminder: A programming assignment deadline is coming up. Commit and push your work in time."
+      },
+      {
+        title: "Nutrition analysis report due",
+        icon: "🥗",
+        template: () =>
+          "Your nutrition analysis report is due soon. Double-check your nutritional data and formatting."
+      },
+      {
+        title: "Last day to submit research paper",
+        icon: "📚",
+        template: () =>
+          "Today is the final day to submit your research paper. Don’t miss the cut-off!"
+      },
+      {
+        title: "Deadline for code repository submission",
+        icon: "🗃️",
+        template: () =>
+          "The deadline for submitting your code repository is coming up. Ensure all files are up to date."
+      },
+      {
+        title: "Group project deadline approaching",
+        icon: "👥",
+        template: () =>
+          "A group project deadline is approaching. Coordinate with your teammates for final touches."
+      },
+      {
+        title: "Deadline for lab journal upload",
+        icon: "📓",
+        template: () =>
+          "Reminder: Upload your lab journal before the deadline. Check formatting and completeness."
+      },
+      {
+        title: "Multimedia project due tomorrow",
+        icon: "🎬",
+        template: () =>
+          "Reminder: A multimedia project is due tomorrow. Don’t wait until the last minute to render!"
+      },
+      {
+        title: "Midterm assessment submission deadline",
+        icon: "📆",
+        template: () =>
+          "The submission deadline for a midterm assessment is coming up. Finalize your work soon."
+      },
+      {
+        title: "Final report deadline this week",
+        icon: "🚨",
+        template: () =>
+          "A final report is due this week. Stay on top of your progress and submit early if possible."
+      },
+      {
+        title: "Capstone draft due soon",
+        icon: "🏗️",
+        template: () =>
+          "Heads-up: A capstone draft deadline is coming up. Make sure it's polished and complete."
+      },
+      {
+        title: "Data analysis submission required",
+        icon: "📊",
+        template: () =>
+          "A data analysis submission is required soon. Check your results and interpretations."
+      },
+      {
+        title: "Practical exam write-up deadline",
+        icon: "🧾",
+        template: () =>
+          "Deadline approaching for a practical exam write-up. Ensure it covers all necessary sections."
+      }
     ],
     extraTags: [
       "CS 10", "CS 11", "CS 12", "CS 20", "CS 21", "CS 32", "CS 33", "CS 136",
@@ -104,24 +419,78 @@ const notificationClasses = {
   Holidays: {
     mainTag: "Holidays",
     titles: [
-      { title: "No classes: New Year's Day", icon: "🎆" },
-      { title: "No classes: EDSA People Power Revolution", icon: "✊" },
-      { title: "No classes: Holy Week", icon: "⛪" },
-      { title: "No classes: Araw ng Kagitingan", icon: "🇵🇭" },
-      { title: "No classes: Labor Day", icon: "🛠️" },
-      { title: "No classes: Independence Day", icon: "🎉" },
-      { title: "No classes: Ninoy Aquino Day", icon: "🕊️" },
-      { title: "No classes: National Heroes Day", icon: "🦸" },
-      { title: "No classes: All Saints’ Day", icon: "🕯️" },
-      { title: "No classes: Bonifacio Day", icon: "🗡️" },
-      { title: "No classes: Christmas Day", icon: "🎄" },
-      { title: "No classes: Rizal Day", icon: "📖" },
-      { title: "No classes: Chinese New Year", icon: "🐉" },
-      { title: "No classes: Eid’l Fitr", icon: "🌙" },
-      { title: "No classes: Eid’l Adha", icon: "🕋" },
-      { title: "Holiday advisory posted", icon: "📢" },
-      { title: "Holiday update: Classes suspended", icon: "📅" },
-      { title: "Holiday break starts soon", icon: "🧳" }
+      {
+        title: "No classes: New Year's Day",
+        icon: "🎆",
+        template: () =>
+          `No classes will be held on New Year's Day. Enjoy the holiday!`
+      },
+      {
+        title: "No classes: EDSA People Power Revolution",
+        icon: "✊",
+        template: () =>
+          `No classes in observance of the EDSA People Power Revolution.`
+      },
+      {
+        title: "No classes: Holy Week",
+        icon: "⛪",
+        template: () =>
+          `No classes during Holy Week.`
+      },
+      {
+        title: "No classes: Araw ng Kagitingan",
+        icon: "🇵🇭",
+        template: () =>
+          `No classes in observance of Araw ng Kagitingan.`
+      },
+      {
+        title: "No classes: Labor Day",
+        icon: "🛠️",
+        template: () =>
+          `No classes on Labor Day.`
+      },
+      {
+        title: "No classes: Independence Day",
+        icon: "🎉",
+        template: () =>
+          `No classes on Independence Day.`
+      },
+      {
+        title: "No classes: Ninoy Aquino Day",
+        icon: "🕊️",
+        template: () =>
+          `No classes on Ninoy Aquino Day.`
+      },
+      {
+        title: "No classes: National Heroes Day",
+        icon: "🏅",
+        template: () =>
+          `No classes on National Heroes Day.`
+      },
+      {
+        title: "No classes: Bonifacio Day",
+        icon: "🎖️",
+        template: () =>
+          `No classes on Bonifacio Day.`
+      },
+      {
+        title: "No classes: Christmas Day",
+        icon: "🎄",
+        template: () =>
+          `No classes on Christmas Day.`
+      },
+      {
+        title: "No classes: Rizal Day",
+        icon: "🖋️",
+        template: () =>
+          `No classes on Rizal Day.`
+      },
+      {
+        title: "No classes: Additional special non-working days",
+        icon: "🛑",
+        template: ({ date, name }) =>
+          `No classes today in observance of special non-working days.`
+      }
     ],
     extraTags: []
   }
@@ -388,6 +757,18 @@ function addRandomNotification() {
 
   const titleObj = cls.titles[getRandomInt(cls.titles.length)];
 
+  // Example of dynamic data for your template
+  const dynamicData = {
+    className: "Math 101",
+    dueDate: randomDateWithinLastDays(10),
+    score: 87,
+    total: 100,
+  };
+
+  const contentText = titleObj.template
+    ? titleObj.template(dynamicData)
+    : `This is a notification about “${titleObj.title}.”`;
+
   const tags = [cls.mainTag];
   const extras = cls.extraTags.slice().sort(() => 0.5 - Math.random());
   const extraCount = getRandomInt(Math.min(3, extras.length + 1));
@@ -396,9 +777,10 @@ function addRandomNotification() {
   const newNotif = {
     id: Date.now() + getRandomInt(1000),
     title: titleObj.title,
-    content: `This is a notification about “${titleObj.title}.”`,
+    content: contentText,
     time: randomDateWithinLastDays(7),
-    tags, icon: titleObj.icon,
+    tags,
+    icon: titleObj.icon,
     checked: false,
     justAdded: true
   };
@@ -599,8 +981,7 @@ document.getElementById("debug-btn").addEventListener("click", addRandomNotifica
 
 //–– Initialize ––//
 setCurrentDate();
+applyThemePreset("maroon");
 renderList();
 renderDropdownNotifications();
 setInterval(setCurrentDate, 1000);
-
-applyThemePreset("maroon");
