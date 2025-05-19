@@ -626,6 +626,7 @@ function renderList() {
       }
       renderList();
       renderDropdownNotifications();
+      updateNotificationCount();
       renderContent(notif);
     };
 
@@ -668,6 +669,7 @@ function renderList() {
       }
       renderList();
       renderDropdownNotifications();
+      updateNotificationCount();
     };
     div.appendChild(btn);
 
@@ -689,6 +691,7 @@ function clearAllNotifications() {
   selectedNotificationId = null;
   renderList();
   renderDropdownNotifications();
+  updateNotificationCount();
   renderContent({ title: "Select a notification", content: "" });
 }
 
@@ -701,6 +704,7 @@ function markAllAsRead() {
     updateTabsUI();
     renderList();
     renderDropdownNotifications();
+    updateNotificationCount();
     renderContent({ title: "Select a notification", content: "" });
   }
 }
@@ -708,6 +712,7 @@ function markAllAsRead() {
 function refreshNotifications() {
   renderList();
   renderDropdownNotifications();
+  updateNotificationCount();
 }
 
 function switchTab(tab) {
@@ -716,6 +721,7 @@ function switchTab(tab) {
   updateTabsUI();
   renderList();
   renderDropdownNotifications();
+  updateNotificationCount();
   renderContent({ title: "Select a notification", content: "" });
 }
 
@@ -787,6 +793,7 @@ function addRandomNotification() {
 
   newNotifications.unshift(newNotif);
   renderDropdownNotifications();
+  updateNotificationCount();
   if (currentTab === "new") renderList();
 }
 
@@ -863,6 +870,8 @@ function renderDropdownNotifications() {
 
     dropdownList.appendChild(li);
   });
+
+  updateNotificationCount();
 }
 
 const themePresets = {
@@ -996,6 +1005,18 @@ const profiles = [
   { name: "Julian Carlos Yabut", img: "./img/julian.jpg" }
 ];
 
+function updateNotificationCount() {
+  const countSpan = document.getElementById("notification-count");
+  const count = newNotifications.length;
+
+  if (count > 0) {
+    countSpan.textContent = count > 99 ? "99+" : count;
+    countSpan.style.display = "inline";
+  } else {
+    countSpan.style.display = "none";
+  }
+}
+
 const randomProfile = profiles[Math.floor(Math.random() * profiles.length)];
 
 document.getElementById("profile-name").textContent = randomProfile.name;
@@ -1007,4 +1028,5 @@ setCurrentDate();
 applyThemePreset("maroon");
 renderList();
 renderDropdownNotifications();
+updateNotificationCount();
 setInterval(setCurrentDate, 1000);
