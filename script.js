@@ -680,6 +680,70 @@ function renderList() {
 function renderContent(notif) {
   document.getElementById("content-title").textContent = notif.title;
   document.getElementById("content-text").textContent = notif.content;
+
+  const feedbackContainer = document.getElementById("content-feedback");
+  feedbackContainer.innerHTML = ""; // Clear previous
+
+  // Prevent duplicate feedback
+  if (notif.feedbackSubmitted) {
+    const message = document.createElement("p");
+    message.textContent = "Thanks for your feedback! 😊";
+    feedbackContainer.appendChild(message);
+    return;
+  }
+
+  // Prompt
+  const prompt = document.createElement("p");
+  prompt.textContent = "Was this helpful?";
+  prompt.style.marginTop = "20px";
+
+  // Buttons container
+  const buttons = document.createElement("div");
+  buttons.style.display = "flex";
+  buttons.style.gap = "10px";
+  buttons.style.marginTop = "5px";
+
+  const thumbsUp = document.createElement("button");
+  thumbsUp.textContent = "👍";
+  thumbsUp.onclick = () => {
+    notif.feedback = "up";
+    notif.feedbackSubmitted = true;
+    feedbackContainer.innerHTML = "<p>Thanks for your feedback! 😊</p>";
+  };
+
+  const thumbsDown = document.createElement("button");
+  thumbsDown.textContent = "👎";
+  thumbsDown.onclick = () => {
+    notif.feedback = "down";
+    notif.feedbackSubmitted = true;
+    feedbackContainer.innerHTML = "<p>Sorry to hear that. We’ll try to improve!</p>";
+  };
+
+  buttons.appendChild(thumbsUp);
+  buttons.appendChild(thumbsDown);
+
+  feedbackContainer.appendChild(prompt);
+  feedbackContainer.appendChild(buttons);
+  document.getElementById("content-feedback").innerHTML = `
+    <p>Was this helpful?</p>
+    <div class="feedback-buttons">
+      <button class="feedback-btn" onclick="submitFeedback(${notif.id}, true)">👍 Yes</button>
+      <button class="feedback-btn" onclick="submitFeedback(${notif.id}, false)">👎 No</button>
+    </div>
+  `;
+}
+
+function submitFeedback(notifId, isHelpful) {
+  const feedbackContainer = document.getElementById("content-feedback");
+  const message = isHelpful
+    ? "👍 Thanks for your feedback!"
+    : "👎 Sorry to hear that. We’ll try to improve!";
+
+  feedbackContainer.innerHTML = `
+    <p style="margin-top: 0.5rem; color: black; font-weight: 500;">${message}</p>
+  `;
+
+  console.log(`Feedback for notification ${notifId}:`, isHelpful ? "Helpful" : "Not helpful");
 }
 
 //–– Actions ––//
@@ -980,9 +1044,13 @@ function applyThemePreset(themeName) {
 
   // Apply button color
   document.querySelectorAll("button").forEach(button => {
-    if (!button.classList.contains("color-swatch") && !button.classList.contains("notification-archive-btn")) {
+    if (
+      !button.classList.contains("color-swatch") && 
+      !button.classList.contains("notification-archive-btn") && 
+      !button.classList.contains("feedback-btn")) {
       button.style.backgroundColor = colors.button;
       button.style.borderColor = colors.button;
+      console.log(button, button.className);
     }
   });
 
