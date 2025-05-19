@@ -989,11 +989,11 @@ function applyThemePreset(themeName) {
 }
 
 const profiles = [
-  { name: "Joaquin Enrique Luistro", img: "./img/blank.png" },
+  { name: "Joaquin Enrique Luistro", img: "./img/joaquin.jpg" },
   { name: "Paul Timothy Necasio", img: "./img/paul.jpg" },
-  { name: "Garlu Victor Nepomuceno", img: "./img/blank.png" },
-  { name: "Kelly Allyson Vergara", img: "./img/blank.png" },
-  { name: "Julian Carlos Yabut", img: "./img/blank.png" }
+  { name: "Garlu Victor Nepomuceno", img: "./img/garlu.jpg" },
+  { name: "Kelly Allyson Vergara", img: "./img/kelly.jpg" },
+  { name: "Julian Carlos Yabut", img: "./img/julian.jpg" }
 ];
 
 const randomProfile = profiles[Math.floor(Math.random() * profiles.length)];
